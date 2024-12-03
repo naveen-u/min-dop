@@ -10,3 +10,7 @@ RUN apt-get -qq update; \
     python3-docopt \
     ; \
     rm -rf /var/lib/apt/lists/*
+
+WORKDIR /repo
+
+CMD make -f vuln.mk; /repo/vuln_srv 1111

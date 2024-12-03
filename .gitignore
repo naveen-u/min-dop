@@ -229,3 +229,4 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/c,python
 
 vuln_srv
+hardened_srv

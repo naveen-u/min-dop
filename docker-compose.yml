@@ -2,12 +2,22 @@ version: '3'
 
 services:
 
-  debian:
+  vulnSrv:
     build:
       context: .
-      dockerfile: Dockerfile.debian
-    image: debian:min-dop
-    container_name: min-dop-runner
+      dockerfile: Dockerfile.vuln
+    image: debian:min-dop-vuln
+    container_name: min-dop-vuln
+    working_dir: /repo
+    volumes:
+      - ${REPO_PATH}:/repo
+    tty: true
+  hardenedSrv:
+    build:
+      context: .
+      dockerfile: Dockerfile.hardened
+    image: debian:min-dop-hardened
+    container_name: min-dop-hardened
     working_dir: /repo
     volumes:
       - ${REPO_PATH}:/repo
