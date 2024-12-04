@@ -10,7 +10,8 @@ RUN apt-get -qq update; \
     python3-docopt \
     wget \
     gnupg \
-    software-properties-common
+    software-properties-common \
+    libssl-dev
 
 RUN mkdir -p /tools
 WORKDIR /tools
@@ -27,7 +28,7 @@ RUN make install
 
 # Download and build the pass
 WORKDIR /build
-RUN git clone --depth 1 --branch 20241201.01 https://github.com/naveen-u/cse-583-project.git
+RUN git clone --depth 1 --branch main https://github.com/naveen-u/cse-583-project.git
 WORKDIR /build/cse-583-project
 RUN mkdir -p build
 WORKDIR /build/cse-583-project/build

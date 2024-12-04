@@ -65,7 +65,7 @@ int checkForInvalidTypes(var_t type, int clientfd, g_var_t LUT_ERROR_CODES[]) {
   int err_no;
   printf("\n\n\nType is %d\n\n\n", type);
   // integer underflow
-  if (type <= 2 || type > 10) {
+  if (type <= 2) {
     err_no = LUT_ERROR_CODES[type];
     printf("[checkForInvalidTypes] ERROR: err_no:%x\n", err_no);
     sprintf(buffer, "%08x\n", err_no);
