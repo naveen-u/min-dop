@@ -153,11 +153,13 @@ void do_serve(int sockfd, g_var_t g_clfd, var_t *connect_limit,
 
     printf("\n[do_serve] Request Start:\n");
     printf("[do_serve] internal stack variables:\n");
-    printf("            p_g_d: <%p>\n", p_g_d);
-    printf("            p_srv: <%p>\n", p_srv);
+    printf("            p_g_d: <%p>\n", *p_g_d);
+    printf("            p_srv: <%p>\n", *p_srv);
     printf("    connect_limit:  %x\n", *connect_limit);
     printf("           p_size: <%p>\n", p_size);
     printf("           p_type: <%p>\n", p_type);
+    printf("             &g_a: <%p>\n", g_p_g_a);
+    printf("              g_a: <%p>\n", *g_p_g_a);
 
     // for simplicity, reset p_size, p_type
     p_size = (var_t *)&sbuf[4];
@@ -173,13 +175,15 @@ void do_serve(int sockfd, g_var_t g_clfd, var_t *connect_limit,
     printf("\n-->\n");
 
     printf("[do_serve] internal stack variables:\n");
-    printf("            p_g_d: <%p>\n", p_g_d);
-    printf("            p_srv: <%p>\n", p_srv);
+    printf("            p_g_d: <%p>\n", *p_g_d);
+    printf("            p_srv: <%p>\n", *p_srv);
     printf("    connect_limit:  %x\n", *connect_limit);
     printf("           p_size: <%p>\n", p_size);
     printf("          *p_size:  %x\n", *p_size);
     printf("           p_type: <%p>\n", p_type);
     printf("          *p_type:  %x\n", *p_type);
+    printf("             &g_a: <%p>\n", g_p_g_a);
+    printf("              g_a: <%p>\n", *g_p_g_a);
 
     if (checkForInvalidTypes(*p_type, g_clfd,
                              LUT_ERROR_CODES)) { // memory read safety violation
