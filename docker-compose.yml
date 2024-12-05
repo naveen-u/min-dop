@@ -1,7 +1,4 @@
-version: '3'
-
 services:
-
   vulnSrv:
     build:
       context: .
@@ -10,7 +7,7 @@ services:
     container_name: min-dop-vuln
     working_dir: /repo
     volumes:
-      - ${REPO_PATH}:/repo
+      - ${PWD}:/repo
     tty: true
   hardenedSrv:
     build:
@@ -20,5 +17,5 @@ services:
     container_name: min-dop-hardened
     working_dir: /repo
     volumes:
-      - ${REPO_PATH}:/repo
+      - ${PWD}:/repo
     tty: true
